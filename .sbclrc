@@ -1,0 +1,7 @@
+#-quicklisp
+(let ((quicklisp-init ".quicklisp/setup.lisp"))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+(ql:register-local-projects)
+(ql:quickload :orgmark)
