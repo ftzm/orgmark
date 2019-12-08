@@ -32,6 +32,21 @@
 	 (new-doc (add-mark doc name url)))
     (writeout new-doc dir)))
 
+
+;; Print marks
+
+(defun print-marks (dir)
+  (let ((marks (node.out (org-parse (file-get-contents dir)))))
+    (mapc
+     #'(lambda (mark)
+	 (let ((title (title-of mark))
+	       (url (cdr (assoc
+			  "URL"
+			  (static-properties-of mark)
+			  :test #'string=))))
+	   (format t "~a~a~a~%" title #\tab url)))
+     marks)))
+
 ;; CLI
 
 (defparameter top-options
