@@ -58,7 +58,12 @@
 	    ((name nil "bookmark name")
 	     (url nil "bookmark url"))
 	    "add a bookmark"
-	  (create-mark *dir* name url))))
+	    (create-mark *dir* name url))
+	(defcommand
+	    ("print")
+	    ()
+	  "print bookmarks"
+	  (print-marks *dir*))))
 
 (defun run-command-strict (argv options commands)
   (multiple-value-bind (opts-vars opts-values sub-func sub-opts argv)

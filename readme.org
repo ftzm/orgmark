@@ -1,0 +1,21 @@
+* Orgmark
+Orgmark is a simple command line tool to support using an org mode file as a bookmark database.
+Its key features are:
+1. Adding new bookmarks on the command line.
+2. Printing the bookmark list in format suitable for scripts, or as input to tools like dmenu or rofi.
+** CLI Use
+#+BEGIN_SRC bash
+# Add a bookmark
+orgmark --dir <boorkmarks.org-path> add <name> <url>
+# Print bookmarks
+orgmark --dir
+#+END_SRC
+It is mandatory to specify ~--dir~.
+** Building
+Orgmark can be built by running ~make~. The build requires sbcl with quicklisp installed. If you use Nix, you can use the provided ~shell.nix~ file to install the necessary dependencies before running ~make~.
+** Why
+Storing bookmarks in an org mode enables:
+- writing notes directly under bookmarks
+- referencing bookmarks in other org-mode files
+- easily backing up pages with tools such as org-shelf
+- easily sharing bookmarks between devices with file syncing tools
